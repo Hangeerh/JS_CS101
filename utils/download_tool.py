@@ -13,7 +13,8 @@ def download_is_complete() -> bool:
     global dataset_path
     if pathlib.Path(dataset_path).is_file():
         size = os.path.getsize(dataset_path)
-        if size == 1114432:
+        # Check if the size is big enough
+        if size > 524288000:
             return True
     return False
 
